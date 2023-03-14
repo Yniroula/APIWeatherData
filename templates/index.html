@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+
+</head>
+<body>
+	<h1>Find Current Weather</h1>
+	<form action="/" method="post">
+		<label for="city">Enter City Name:</label>
+		<input type="text" id="city" name="city" required>
+		<button type="submit">Submit</button>
+	</form>
+	{% if temp %}
+		<p>The temperature in {{ city }} is {{ temp }}&deg;C.</p>
+	{% endif %}
+	<br>
+	{% if error_msg %}
+    <div class="alert alert-danger">{{ error_msg }}</div>
+	{% endif %}
+
+</body>
+</html>
