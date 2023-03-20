@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import requests
-import config
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -10,7 +9,7 @@ def index():
 	error_msg = None
 	if request.method == 'POST':
 		city = request.form['city']
-		api_key = (config.api_key)
+		api_key = '2ea04236caad52861fbbb3de1768fd04'
 		url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
 		response = requests.get(url)
 		if response.status_code == 200:
